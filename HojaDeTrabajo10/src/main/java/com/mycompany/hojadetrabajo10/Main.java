@@ -140,6 +140,9 @@ public class Main implements AutoCloseable{
                    
                    break;
                 case 4:
+                   System.out.println("Ingrese la especialidad que desea buscar");
+                   String especial = scanner.nextLine();
+                   System.out.println(Doctor.findNodes(DinamicLabel.label(especial)));
                    
                    break;
                 case 5:
@@ -147,7 +150,7 @@ public class Main implements AutoCloseable{
                     String per1 = scanner.nextLine();
                     System.out.println("Ingrese el nombre de la segunda persona");
                     String per2 = scanner.nextLine();
-                    per1.createRelationshipTo(per2, RelationshipType.Knows);
+                    Paciente.findNodes(DinamicLabel.label(per1)).createRelationshipTo(Paciente.findNodes(DinamicLabel.label(per2)), RelationshipType.Knows);
                     
                     break;
                 default:
