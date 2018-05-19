@@ -6,6 +6,7 @@
 package com.mycompany.hojadetrabajo10;
 
 import java.util.Scanner;
+import org.neo4j.graphdb.RelationType;
 import org.neo4j.driver.v1.AuthTokens;
 import org.neo4j.driver.v1.Driver;
 import org.neo4j.driver.v1.GraphDatabase;
@@ -22,6 +23,11 @@ import static org.neo4j.driver.v1.Values.parameters;
 
 public class Main implements AutoCloseable{
     private final Driver driver;
+    
+    public enum RationType implements RelationType{
+        Knows, BelongsTo;
+    }
+    
      public Main( String uri, String user, String password )
     {
         driver = GraphDatabase.driver( uri, AuthTokens.basic( user, password ) );
@@ -136,6 +142,14 @@ public class Main implements AutoCloseable{
                 case 4:
                    
                    break;
+                case 5:
+                    System.out.println("Ingrese el nombre de la primer persona ");
+                    String per1 = scanner.nextLine();
+                    System.out.println("Ingrese el nombre de la segunda persona");
+                    String per2 = scanner.nextLine();
+                    per1.createRelationshipTo(per2, RelationshipType.Knows);
+                    
+                    break;
                 default:
                    System.out.println("Solo números entre 1 y 4");
            }   
