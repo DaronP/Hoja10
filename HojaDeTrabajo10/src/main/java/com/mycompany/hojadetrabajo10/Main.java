@@ -56,6 +56,7 @@ public class Main implements AutoCloseable{
     {
         try ( Main greeter = new Main( "bolt://localhost:7687", "neo4j", "password" ) )
         {
+          Scanner scanner = new Scanner(System.in);
           Scanner sn = new Scanner(System.in);  
           int respuesta; 
           
@@ -69,7 +70,7 @@ public class Main implements AutoCloseable{
            
           switch(respuesta){
                case 1:
-                   Scanner scanner = new Scanner(System.in);
+                   
                    //Pedimos los datos del paciente
                     System.out.print("Ingresa nombre del paciente: ");
                     String Pname = scanner.nextLine();
@@ -81,6 +82,7 @@ public class Main implements AutoCloseable{
                      -[:VISITS {fecha:Pdate}]];
                    break;
                case 2:
+                   
                    System.out.println("Has seleccionado la opcion 2");
                       //Pedimos los datos del doctor
                     System.out.print("Ingresa nombre del doctor: ");
@@ -97,18 +99,18 @@ public class Main implements AutoCloseable{
                    System.out.println("Has seleccionado la opcion 3");
                    //Pedimos los datos del paciente
                     System.out.print("Ingresa nombre del paciente: ");
-                    String Pname = scanner.nextLine();
+                     Pname = scanner.nextLine();
                     System.out.print("Ingresa nombre el telefono: ");
-                    String Pnumber = scanner.nextLine();
+                     Pnumber = scanner.nextLine();
                     System.out.print("Ingresa la fecha de la visita: ");
-                    String Pdate = scanner.nextLine();
+                     Pdate = scanner.nextLine();
                       //Pedimos los datos del doctor
                     System.out.print("Ingresa nombre del doctor: ");
-                    String Dname = scanner.nextLine();
+                     Dname = scanner.nextLine();
                     System.out.print("Ingresa la especialidad del doctor: ");
-                    String Dspecial = scanner.nextLine();
+                     Dspecial = scanner.nextLine();
                     System.out.print("Ingresa el numero de telefono: ");
-                    String Dnumber = scanner.nextLine();
+                     Dnumber = scanner.nextLine();
                     // Pedimos la prescripcion
                     System.out.print("Ingresa nombre del medicamento: ");
                     String Mname = scanner.nextLine();
