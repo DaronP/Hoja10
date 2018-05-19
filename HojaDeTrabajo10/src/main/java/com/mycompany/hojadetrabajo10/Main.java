@@ -31,7 +31,7 @@ public class Main implements AutoCloseable{
     {
         driver.close();
     }
-    
+        
      public void printGreeting( final String message )
     {
         try ( Session session = driver.session() )
@@ -71,20 +71,65 @@ public class Main implements AutoCloseable{
                case 1:
                    Scanner scanner = new Scanner(System.in);
                    //Pedimos los datos del paciente
-                System.out.print("Ingresa nombre del paciente: ");
-                String Pname = scanner.nextLine();
-                System.out.print("Ingresa nombre el telefono: ");
-                String Pnumber = scanner.nextLine();
-                System.out.print("Ingresa la fecha de la visita: ");
-                String Pdate = scanner.nextLine();
-                CREATE (p:Paciente {nombre:Pname,telefono:Pnumber});
-                 -[:VISITS {fecha:Pdate}]];
+                    System.out.print("Ingresa nombre del paciente: ");
+                    String Pname = scanner.nextLine();
+                    System.out.print("Ingresa nombre el telefono: ");
+                    String Pnumber = scanner.nextLine();
+                    System.out.print("Ingresa la fecha de la visita: ");
+                    String Pdate = scanner.nextLine();
+                    CREATE (p:Paciente {nombre:Pname,telefono:Pnumber});
+                     -[:VISITS {fecha:Pdate}]];
                    break;
                case 2:
                    System.out.println("Has seleccionado la opcion 2");
+                      //Pedimos los datos del doctor
+                    System.out.print("Ingresa nombre del doctor: ");
+                    String Dname = scanner.nextLine();
+                    System.out.print("Ingresa la especialidad del doctor: ");
+                    String Dspecial = scanner.nextLine();
+                    System.out.print("Ingresa el numero de telefono: ");
+                    String Dnumber = scanner.nextLine();
+                    
+                    CREATE (d:Doctor {nombre:Dname, especialidad:Dspecial, telefono:Dnumber});
+     
                    break;
                 case 3:
                    System.out.println("Has seleccionado la opcion 3");
+                   //Pedimos los datos del paciente
+                    System.out.print("Ingresa nombre del paciente: ");
+                    String Pname = scanner.nextLine();
+                    System.out.print("Ingresa nombre el telefono: ");
+                    String Pnumber = scanner.nextLine();
+                    System.out.print("Ingresa la fecha de la visita: ");
+                    String Pdate = scanner.nextLine();
+                      //Pedimos los datos del doctor
+                    System.out.print("Ingresa nombre del doctor: ");
+                    String Dname = scanner.nextLine();
+                    System.out.print("Ingresa la especialidad del doctor: ");
+                    String Dspecial = scanner.nextLine();
+                    System.out.print("Ingresa el numero de telefono: ");
+                    String Dnumber = scanner.nextLine();
+                    // Pedimos la prescripcion
+                    System.out.print("Ingresa nombre del medicamento: ");
+                    String Mname = scanner.nextLine();
+                    System.out.print("Ingrese desde cuando debe consumir el medicamento: ");
+                    String Minicio = scanner.nextLine();
+                    System.out.print("Ingrese hasta cuando debe consumir el medicamento: ");
+                    String Mfin = scanner.nextLine();
+                    System.out.print("Ingrese dosis: ");
+                    String Mdosis = scanner.nextLine();
+                    
+                    CREATE (p:Paciente {nombre:Pname, telefono:Pnumer]);
+                    -[:VISITS {fecha: pDate}]->;
+                    (d:Doctor {nombre:Dname, especialidad:Dspecial, telefono:Dnumber});
+                    -[:PRESCRIBE]->;
+                    (m:Medicina{nombre:Mname,desdeFecha:Minicio,hastaFecha:Mfin,dosis:Mdosis});
+                    <-[:TAKES]-(p);
+                }
+                    
+                    
+                    
+                   
                    break;
                 case 4:
                    
